@@ -1,0 +1,73 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.flavor-card[data-flavor="blackberry"] {
+    background: linear-gradient(135deg, rgba(74, 18, 89, 0.1), rgba(74, 18, 89, 0.05));
+}
+
+.flavor-card[data-flavor="strawberry"] {
+    background: linear-gradient(135deg, rgba(255, 77, 109, 0.1), rgba(255, 77, 109, 0.05));
+}
+
+.flavor-card[data-flavor="apple"] {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+}
+
+.flavor-card[data-flavor="mango"] {
+    background: linear-gradient(135deg, rgba(255, 167, 38, 0.1), rgba(255, 167, 38, 0.05));
+}
+
+.flavor-card[data-flavor="mixed"] {
+    background: linear-gradient(135deg,
+        rgba(74, 18, 89, 0.1),
+        rgba(255, 77, 109, 0.1),
+        rgba(76, 175, 80, 0.1),
+        rgba(255, 167, 38, 0.1)
+    );
+    background-size: 400% 400%;
+    animation: colorShift 15s ease infinite;
+}
+
+.section {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Hover Effects */
+.glassmorphic {
+    position: relative;
+    overflow: hidden;
+}
+
+.glassmorphic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.glassmorphic:hover::before {
+    left: 100%;
+}
